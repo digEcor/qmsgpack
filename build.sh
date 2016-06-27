@@ -7,6 +7,8 @@ set -e
 
 source /usr/local/lib/bash/jenkins.sh
 
+export TOP_SRCDIR=$(pwd)
+
 if [ "$DIGECOR_TARGET" == "NV" ]; then
 	enable_toolchain
 fi
