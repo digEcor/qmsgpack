@@ -51,9 +51,6 @@ all:
 	install -m 644 -p ../src/stream/time.h $(build)/usr/include/qmsgpack/stream/
 	
 	install -m 755 -p ../bin/libqmsgpack.so.1.0.0 $(build)/usr/lib/
-	ifeq ($(DIGECOR_TARGET), CM)
-		strip --strip-unneeded $(build)/usr/lib/libqmsgpack.so.1.0.0
-	endif
 	ln -f -s $(build)/usr/lib/libqmsgpack.so.1.0.0 $(build)/usr/lib/libqmsgpack.so
 	ln -f -s $(build)/usr/lib/libqmsgpack.so.1.0.0 $(build)/usr/lib/libqmsgpack.so.1
 	ln -f -s $(build)/usr/lib/libqmsgpack.so.1.0.0 $(build)/usr/lib/libqmsgpack.so.1.0
