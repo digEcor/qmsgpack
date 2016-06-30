@@ -43,14 +43,14 @@ all:
 	mkdir -p $(build)/usr/include/qmsgpack/stream
 	mkdir -p $(build)/usr/lib
 
-	cp -m 644 -p ../src/msgpack.h $(build)/usr/include/qmsgpack/
-	cp -m 644 -p ../src/endianhelper.h $(build)/usr/include/qmsgpack/
-	cp -m 644 -p ../src/msgpackcommon.h $(build)/usr/include/qmsgpack/
-	cp -m 644 -p ../src/msgpack_export.h $(build)/usr/include/qmsgpack/
-	cp -m 644 -p ../src/stream/location.h $(build)/usr/include/qmsgpack/stream/
-	cp -m 644 -p ../src/stream/tune.h $(build)/usr/include/qmsgpack/stream/
+	install -m 644 -p ../src/msgpack.h $(build)/usr/include/qmsgpack/
+	install -m 644 -p ../src/endianhelper.h $(build)/usr/include/qmsgpack/
+	install -m 644 -p ../src/msgpackcommon.h $(build)/usr/include/qmsgpack/
+	install -m 644 -p ../src/msgpack_export.h $(build)/usr/include/qmsgpack/
+	install -m 644 -p ../src/stream/location.h $(build)/usr/include/qmsgpack/stream/
+	install -m 644 -p ../src/stream/tune.h $(build)/usr/include/qmsgpack/stream/
 	
-	cp -m 755 -p ../bin/libqmsgpack.so.1.0.0 $(build)/usr/lib/
+	install -m 755 -p ../bin/libqmsgpack.so.1.0.0 $(build)/usr/lib/
 	strip --strip-unneeded $(build)/usr/lib/libqmsgpack.so.1.0.0
 	ln -f -s $(build)/usr/lib/libqmsgpack.so.1.0.0 $(build)/usr/lib/libqmsgpack.so
 	ln -f -s $(build)/usr/lib/libqmsgpack.so.1.0.0 $(build)/usr/lib/libqmsgpack.so.1
