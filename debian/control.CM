@@ -2,7 +2,7 @@ Package: qmsgpack
 Version: __VERSION__
 Section: base
 Priority: optional
-Architecture: arm64
+Architecture: amd64
 Maintainer: DigEcor Developers (digeplayerxt@digecor.com)
 Description: qmsgpack
  This package contains the Qt msgpack libraries.
