@@ -48,7 +48,7 @@ all:
 	install -m 644 -p ../src/msgpackcommon.h $(build)/usr/include/qmsgpack/
 	install -m 644 -p ../src/msgpack_export.h $(build)/usr/include/qmsgpack/
 	install -m 644 -p ../src/stream/location.h $(build)/usr/include/qmsgpack/stream/
-	install -m 644 -p ../src/stream/tune.h $(build)/usr/include/qmsgpack/stream/
+	install -m 644 -p ../src/stream/time.h $(build)/usr/include/qmsgpack/stream/
 	
 	install -m 755 -p ../bin/libqmsgpack.so.1.0.0 $(build)/usr/lib/
 	strip --strip-unneeded $(build)/usr/lib/libqmsgpack.so.1.0.0
