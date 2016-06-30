@@ -1,0 +1,11 @@
+Package: qmsgpack
+Version: __VERSION__
+Section: base
+Priority: optional
+Architecture: arm64
+Maintainer: DigEcor Developers (digeplayerxt@digecor.com)
+Description: qmsgpack
+ This package contains the Qt msgpack libraries.
+Deployment-Target: player, APT repository
+Deployment-Group: all
+Product-Series: CM

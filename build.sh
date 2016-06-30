@@ -20,3 +20,10 @@ fi
 qmake -makefile qmsgpack.pro
 make
 
+cd debian
+make clean
+make
+echo
+
+release_package *.deb
+

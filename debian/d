@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+# $URL: https://pp1/xtsvn/src/trunk/player/ui2/digelib/debian/deploy $
+# $Id: deploy 7099 2013-08-08 17:15:42Z janderson $
+# $Revision: 7099 $
+# $Date: 2013-08-08 11:15:42 -0600 (Thu, 08 Aug 2013) $
+# $Author: janderson $ 
+
+
+# This script is intended to be sourced.  Probably just so I don't have to export L.
+# To further prevent direct execution, set the permissions on this file to not be executable.
+if [ "$0" != "-bash" ]; then
+	echo "deploy: This script must be sourced."
+	exit 1 # You can't return from a non-sourced script: you must exit.
+fi
+
+# This script needs to execute from the directory where it lives regardless of where it
+# was called from.
+# This mechanism does not resolve symlinks.  So, you can't link to this script from directory
+# above and have it just work.
+called_from=$(pwd)
+mydir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+cd $mydir
+
+# echo $mydir
+
+if [ -z "$L" ]; then
+	echo "deploy: Set environment variable L to the IP address deployment target machine."
+	return 1 # Don't exit from sourced scripts: return.
+fi
+
+# Usually, $P is set in .bashrc depending on whether you are doing normal L7 development or
+# Glide development.
+if [ -z "$P" ]; then
+	P=root@$L:/root/packages
+fi
+
+make clean
+make
+
+# Set up passwordless ssh to make this truly automated.
+# scp *.deb $P
+scp *.deb $P
+
+cd $called_from
+
+
