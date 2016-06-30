@@ -13,6 +13,7 @@ package := $(shell grep ^Package ./control | cut -f2 -d\ )
 ifeq ($(DIGECOR_TARGET), NV)
     ziparg :=
     control := control.NV
+endif
 ifeq ($(DIGECOR_TARGET), CM)
     ziparg := 
     control := control.CM
@@ -69,6 +70,4 @@ clean:
 	rm -f $(deb)
 	rm -f *.deb
 	rm -f make.out
-	
-
 
